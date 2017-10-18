@@ -1,106 +1,116 @@
-" Use the Solarized Dark theme
-set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
+execute pathogen#infect()
+filetype plugin indent on
 
-" Make Vim more useful
-set nocompatible
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-" Enhance command-line completion
-set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
-set backspace=indent,eol,start
-" Optimize for fast terminal connections
-set ttyfast
-" Add the g flag to search/replace by default
-set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-" Change mapleader
-let mapleader=","
-" Don’t add empty newlines at the end of files
-set binary
-set noeol
-" Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
+let &t_Co=256
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
+    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
 endif
 
-" Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
-
-" Respect modeline in files
-set modeline
-set modelines=4
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
-" Enable line numbers
-set number
-" Enable syntax highlighting
+colorscheme Tomorrow-Night-Eighties
 syntax on
-" Highlight current line
-set cursorline
-" Make tabs as wide as two spaces
-set tabstop=2
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+
+" Do not enforce Vi compatibility
+set nocompatible
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Show white spaces
 set list
-" Highlight searches
-set hlsearch
-" Ignore case of searches
-set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
-" Always show status line
-set laststatus=2
-" Enable mouse in all modes
-set mouse=a
-" Disable error bells
-set noerrorbells
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-" Show the cursor position
+" Characters to replace white spaces
+set listchars=tab:→\ ,trail:·,eol:¬,nbsp:+
+
+" Set ruler information in bottom right corner
 set ruler
-" Don’t show the intro message when starting Vim
-set shortmess=atI
-" Show the current mode
-set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
-set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
+" Do not wrap lines
+set nowrap
+" Set color of the 80th column, to let you know when to wrap
+set colorcolumn=80
 
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+set autoindent
+" Number of spaces to use for each step of (auto)indent.
+set shiftwidth=2
+
+" Spaces instead of tabs
+set expandtab
+" Number of columns a tab counts for (to display existing text)
+set tabstop=2
+"Number of colums a tab counts for when you hit tab, in insert mode
+set softtabstop=2
+
+" Correct backspace behavior
+set backspace=indent,eol,start
+
+" Do not use backup and swap files
+set nobackup
+set noswapfile
+
+" Highlight cursor line
+set cursorline
+
+" Set search incremental matching
+set incsearch
+
+" Set map leader key
+let mapleader = ","
+
+" Remove scrolling bars from the GUI
+set guioptions-=r
+set guioptions-=l
+set guioptions-=b
+
+" Add ctrlp plugin
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
+set relativenumber
+set number
+
+" ctrlp options
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['.git', '.hg', 'Rakefile']
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn))|(node_modules|vendor|coverage|target)$'
+" use silver searcher
+" http://robots.thoughtbot.com/faster-grepping-in-vim
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l -i --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
 endif
+
+" map fd to ESC
+:inoremap fd <Esc>
+
+nnoremap \ :Ag<SPACE>
+
+" vim-rails options
+map <Leader>m :Rmodel <CR>
+map <Leader>c :Rcontroller <CR>
+map <Leader>v :Rview <CR>
+map <Leader>u :Runittest <CR>
+
+" vim-test options
+"
+" select test running strategy
+let g:test#strategy = 'vimux'    " VimuxRunCommand(<test commmand>)"
+
+"
+" mappings
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+
+" vim sexp
+let g:sexp_enable_insert_mode_mappings = 0
