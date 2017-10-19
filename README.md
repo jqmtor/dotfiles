@@ -1,6 +1,6 @@
-# Mathias’s dotfiles
+# Joaquim’s dotfiles
 
-![Screenshot of my shell prompt](https://i.imgur.com/EkEtphC.png)
+This is a fork of [Mathias Bynens](https://mathiasbynens.be/) [dotfiles repository](https://github.com/mathiasbynens/dotfiles). Before anything else I recommend looking into his repository for inspiration. To a large extent, this is a subset of the configuration in the original repository. The main relevant difference is that I use zsh and not bash.
 
 ## Installation
 
@@ -8,10 +8,10 @@
 
 ### Using Git and the bootstrap script
 
-You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+You can clone the repository wherever you want (I like to keep it in `~/dotfiles`). The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
 ```bash
-git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles && source bootstrap.sh
+git clone git@github.com:quimrstorres/dotfiles.git && cd dotfiles && source bootstrap.sh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
@@ -31,16 +31,16 @@ set -- -f; source bootstrap.sh
 To install these dotfiles without Git:
 
 ```bash
-cd; curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,.osx,LICENSE-MIT.txt}
+cd; curl -#L https://github.com/quimrstorres/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,.osx,LICENSE-MIT.txt}
 ```
 
 To update later on, just run that command again.
 
 ### Specify the `$PATH`
 
-If `~/.path` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/mathiasbynens/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.
+If `~/.path.zsh` exists, it will be sourced along with the other files.
 
-Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
+Here’s an example `~/.path.zsh` file that adds `/usr/local/bin` to the `$PATH`:
 
 ```bash
 export PATH="/usr/local/bin:$PATH"
@@ -48,9 +48,9 @@ export PATH="/usr/local/bin:$PATH"
 
 ### Add custom commands without creating a new fork
 
-If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+If `~/.extra.zsh` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
 
-My `~/.extra` looks something like this:
+My `~/.extra.zsh` looks something like this:
 
 ```bash
 # Git credentials
@@ -63,19 +63,26 @@ GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 ```
 
-You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles/fork) instead, though.
+You could also use `~/.extra.zsh` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/quimrstorres/dotfiles/fork) instead, though.
 
-### Sensible macOS defaults
+### Setting up a new Mac
 
-When setting up a new Mac, you may want to set some sensible macOS defaults:
+Before anything else, generate an SSH key and set up SSH accesss to GitHub:
 
 ```bash
-./.macos
+curl -O https://raw.githubusercontent.com/quimrstorres/dotfiles/master/ssh.sh && chmod +x ssh.sh && ./ssh.sh
 ```
 
-### Install Homebrew formulae
+This script will ask the user for some data and assumes 2FA is set up for GitHub.
 
-When setting up a new Mac, you may want to install some common [Homebrew](https://brew.sh/) formulae (after installing Homebrew, of course):
+
+After that, you may want to set some sensible macOS defaults:
+
+```bash
+./macos.sh`
+```
+
+Finally, you may want to install [Homebrew](https://brew.sh/) formulae and casks:
 
 ```bash
 ./brew.sh
@@ -83,18 +90,13 @@ When setting up a new Mac, you may want to install some common [Homebrew](https:
 
 Some of the functionality of these dotfiles depends on formulae installed by `brew.sh`. If you don’t plan to run `brew.sh`, you should look carefully through the script and manually install any particularly important ones. A good example is Bash/Git completion: the dotfiles use a special version from Homebrew.
 
-## Feedback
-
-Suggestions/improvements
-[welcome](https://github.com/mathiasbynens/dotfiles/issues)!
-
-## Author
+## Original author
 
 | [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
 |---|
 | [Mathias Bynens](https://mathiasbynens.be/) |
 
-## Thanks to…
+## The original author thanks to…
 
 * @ptb and [his _macOS Setup_ repository](https://github.com/ptb/mac-setup)
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
