@@ -6,6 +6,9 @@
 # Install Homebrew formulae and casks
 brew bundle
 
+# Install Spacemacs (requires Emacs to be previously installed)
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
 # Install Modern Make
 go get github.com/tj/mmake/cmd/mmake
 
