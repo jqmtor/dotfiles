@@ -20,12 +20,7 @@ unsetopt nomatch
 fpath=(/usr/local/share/zsh-completions "$HOME/.zfunctions" $fpath)
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-# bind UP and DOWN arrow keys
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # use emacs style editing for the console
 bindkey -e
