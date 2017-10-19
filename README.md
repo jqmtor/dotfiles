@@ -42,25 +42,25 @@ Next, set some sensible macOS defaults:
 Finally, bootstrap dotfiles:
 
 ```bash
-source bootstrap.sh
+source bootstrap.zsh
 ```
 
 ### Configure/update existing Mac
 
 ```bash
-git clone --recursive -j8 git@github.com:quimrstorres/dotfiles.git && cd dotfiles && source bootstrap.sh
+git clone --recursive -j8 git@github.com:quimrstorres/dotfiles.git && cd dotfiles && source bootstrap.zsh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
 
 ```bash
-source bootstrap.sh
+source bootstrap.zsh
 ```
 
 Alternatively, to update while avoiding the confirmation prompt:
 
 ```bash
-set -- -f; source bootstrap.sh
+set -- -f; source bootstrap.zsh
 ```
 
 ### Additional steps
