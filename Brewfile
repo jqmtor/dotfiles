@@ -60,7 +60,7 @@ cask 'rescuetime'
 
 # Install security & privacy applications
 cask '1password'
-cask 'airvpn'
+cask 'eddie' # VPN client
 
 # Install media & storage applications
 cask 'spotify'
