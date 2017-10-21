@@ -18,13 +18,5 @@ upload_key_to_github () {
          https://api.github.com/user/keys
 }
 
-upload_key_to_bitbucket () {
-    read -p "Bitbucket username: " bitbucket_username
-    curl -v -u $bitbucket_username \
-         --data-urlencode 'key=$ssh_pub_key_file_name&label=$remote_key_name' \
-         https://api.bitbucket.org/1.0/users/$bitbucket_username/ssh-keys
-}
-
 generate_ssh_key
 upload_key_to_github
-upload_key_to_bitbucket
