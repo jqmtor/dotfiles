@@ -33,3 +33,5 @@ Thumbs.db
 *.swp           # from Vi
 *.lock          # lock files - signal to applications that a resource should not be used until the lock is released
 
+.p.Makefile
+

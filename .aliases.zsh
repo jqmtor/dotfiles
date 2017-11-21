@@ -12,3 +12,5 @@ alias path='echo -e ${PATH//:/\\n}'
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 alias gemacs='open -a Emacs "$@"'
+
+alias pmake='make -f .p.Makefile'
