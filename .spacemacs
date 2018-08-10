@@ -32,7 +32,9 @@ values."
      emacs-lisp
      git
      markdown
-     org
+     (org :variables
+          org-enable-github-support t
+          )
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -40,6 +42,7 @@ values."
      syntax-checking
      ;; version-control
      clojure
+     parinfer
      (ruby :variables
            ruby-version-manager 'chruby
            ruby-test-runner 'rspec
@@ -256,6 +259,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   )
 
+(defun org-summary-todo (n-done n-not-done)
+  "Switch entry to DONE when all subentries are done, to TODO otherwise."
+  (let (org-log-done org-log-states)   ; turn off logging
+    (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -264,12 +272,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
 
-  ;; Overlay "SPC /" to use ag instead of helm-ag
-  ;; to have search results on a persistent buffer with links
-  ;; to the search files.
-  (spacemacs/set-leader-keys
-    dotspacemacs-emacs-command-key 'counsel-M-x
-    "/" 'ag))
+  ;; Make a TODO entry automatically change to DONE, when all children are done.
+  (add-hook 'org-after-todo-statistics-hook 'org-summary-todo))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
