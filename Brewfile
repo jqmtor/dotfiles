@@ -1,6 +1,6 @@
 cask_args appdir: '/Applications'
 
-tap 'homebrew/dupes'
+tap 'caskroom/fonts'
 
 # Install essentials
 brew 'bash'
@@ -50,9 +50,7 @@ cask 'firefox'
 # Install communication applications
 cask 'slack'
 cask 'skype'
-cask 'limechat'
 cask 'telegram'
-cask 'skitch'
 
 # Install productivity applications
 cask 'alfred'
@@ -60,7 +58,7 @@ cask 'rescuetime'
 
 # Install security & privacy applications
 cask '1password'
-cask 'eddie' # VPN client
+cask 'nordvpn' # VPN client
 
 # Install media & storage applications
 cask 'spotify'
@@ -72,3 +70,6 @@ cask 'iterm2'
 cask 'dash'
 cask 'postman'
 cask 'docker'
+
+# Install font
+cask 'font-souce-code-pro'
