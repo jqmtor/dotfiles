@@ -22,5 +22,11 @@ fpath=(/usr/local/share/zsh-completions "$HOME/.zfunctions" $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-# use emacs style editing for the console
-bindkey -e
+# use Vim style editing for the console
+bindkey -v
+# use fd to exit insert mode
+bindkey -M viins 'fd' vi-cmd-mode
+# make backspace work as expected when going from command mode to insert mode
+bindkey "^?" backward-delete-char
+# bind reverse search to ^r
+bindkey '^R' history-incremental-pattern-search-backward
