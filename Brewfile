@@ -42,6 +42,7 @@ cask 'java'
 brew 'leiningen'
 brew 'chruby'
 brew 'ruby-install'
+brew 'node'
 
 # Install browsers
 cask 'google-chrome'
