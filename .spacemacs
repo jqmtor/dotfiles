@@ -273,7 +273,11 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
 
   ;; Make a TODO entry automatically change to DONE, when all children are done.
-  (add-hook 'org-after-todo-statistics-hook 'org-summary-todo))
+  (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
+  ;; Locations of the org files to include in the agenda
+  ;; This assumes the existence of the Dropbox folder
+  (setq org-agenda-files (list "~/Dropbox/org")))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
