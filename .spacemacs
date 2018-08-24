@@ -277,7 +277,11 @@ you should place you code here."
 
   ;; Locations of the org files to include in the agenda
   ;; This assumes the existence of the Dropbox folder
-  (setq org-agenda-files (list "~/Dropbox/org")))
+  (setq org-agenda-files (list "~/Dropbox/org"))
+
+  ;; Make org agenda and calendar start weeks on Monday
+  (setq org-agenda-start-on-weekday 1)
+  (setq calendar-week-start-day 1))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
