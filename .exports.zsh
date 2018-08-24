@@ -20,9 +20,6 @@ export TERM="xterm-256color"
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-# grep command
-export GREP_OPTIONS="--color"
-
 # Golang
 # GOPATH is exported in .path instead
 
