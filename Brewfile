@@ -73,4 +73,4 @@ cask 'postman'
 cask 'docker'
 
 # Install font
-cask 'font-souce-code-pro'
+cask 'font-source-code-pro'
