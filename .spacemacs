@@ -281,7 +281,17 @@ you should place you code here."
 
   ;; Make org agenda and calendar start weeks on Monday
   (setq org-agenda-start-on-weekday 1)
-  (setq calendar-week-start-day 1))
+  (setq calendar-week-start-day 1)
+
+  ;; Disable smartparens while parinfer is enabled
+  ;; This feature from parinfer does not work with smartparens enabled:
+  ;; https://shaunlebron.github.io/parinfer/#paredit-emerges
+  ;;
+  ;; Relevant issues:
+  ;; https://github.com/DogLooksGood/parinfer-mode/issues/55
+  ;; https://github.com/syl20bnr/spacemacs/issues/9491
+  (add-hook 'parinfer-mode-enable-hook 'turn-off-smartparens-mode)
+  (add-hook 'parinfer-mode-disable-hook 'turn-on-smartparens-mode))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
