@@ -43,6 +43,8 @@ brew 'leiningen'
 brew 'chruby'
 brew 'ruby-install'
 brew 'node'
+brew 'scala'
+brew 'sbt'
 
 # Install browsers
 cask 'google-chrome'
