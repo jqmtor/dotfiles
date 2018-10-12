@@ -45,6 +45,8 @@ brew 'ruby-install'
 brew 'node'
 brew 'scala'
 brew 'sbt'
+brew 'graphviz'
+brew 'plantuml'
 
 # Install browsers
 cask 'google-chrome'
