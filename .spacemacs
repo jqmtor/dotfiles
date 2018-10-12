@@ -57,6 +57,7 @@ values."
      terraform
      ;; Emacs Speaks Statistics
      ess
+     plantuml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -291,7 +292,11 @@ you should place you code here."
   ;; https://github.com/DogLooksGood/parinfer-mode/issues/55
   ;; https://github.com/syl20bnr/spacemacs/issues/9491
   (add-hook 'parinfer-mode-enable-hook 'turn-off-smartparens-mode)
-  (add-hook 'parinfer-mode-disable-hook 'turn-on-smartparens-mode))
+  (add-hook 'parinfer-mode-disable-hook 'turn-on-smartparens-mode)
+
+  ;; Point to the PlantUML jar file, for Babel to use it inside org-mode
+  (setq org-plantuml-jar-path
+        "/usr/local/Cellar/plantuml/1.2018.10/libexec/plantuml.jar"))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
