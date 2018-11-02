@@ -1,2 +1,23 @@
-imap fd <Esc>
+source ~/.vimrc
+
+" Make the editor wait less for the fd (replacement for ESC) sequence to finish
 set timeoutlen=1000
+
+set surround
+
+map <Space>wh <C-w>h
+map <Space>wj <C-w>j
+map <Space>wk <C-w>k
+map <Space>wl <C-w>l
+
+nmap <Space>sap :action FindInPath<CR>
+nmap <Space>pf :action GotoClass<CR>
+nmap <Space>wv :action SplitVertically<CR>
+nmap <Space>ws :action SplitHorizontally<CR>
+
+nmap <Space>mc :action Compile<CR>
+
+nmap <leader>g :action GotoDeclaration<CR>
+nmap <leader>si :action Scala.RunConsole<CR>
+
+nmap <leader>er :action Scala.SendSelectionToConsole<CR>
