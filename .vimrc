@@ -89,6 +89,9 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" make Vim use the system clipboard
+set clipboard+=unnamed
+
 " map fd to ESC
 :inoremap fd <Esc>
 
