@@ -20,3 +20,16 @@ fi;
 
 # Install purer prompt
 npm install --global purer-prompt
+
+# Download the default scalastyle config.
+# Spacemacs expects that the file exists on the provided location (configured on .spacemacs)
+mkdir -p /usr/local/etc/scalastyle
+curl -o /usr/local/etc/scalastyle/scalastyle_config.xml http://www.scalastyle.org/scalastyle_config.xml
+
+# The following are all meant to improve the Python mode on Spacemacs and are referred to on the
+# documentation for that layer.
+# See https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/python
+# To enable syntax checking for python code on Spacemacs
+pip install flake8
+# To supress unused imports easily
+pip install autoflake

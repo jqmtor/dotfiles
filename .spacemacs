@@ -18,10 +18,8 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     rust
      html
      haskell
-     sql
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -47,6 +45,7 @@ values."
            ruby-version-manager 'chruby
            ruby-test-runner 'rspec
            ruby-enable-enh-ruby-mode t)
+     python
      (javascript :variables
                  js2-basic-offset 2
                  js-indent-level 2)
@@ -58,6 +57,9 @@ values."
      ;; Emacs Speaks Statistics
      ess
      plantuml
+     (scala :variables
+            scala-enable-eldoc t
+            scala-auto-insert-asterisk-in-comments t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -146,7 +148,7 @@ values."
    ;; and TAB or <C-m> and RET.
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
-   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-distinguish-gui-tab t
    ;; (Not implemented) dotspacemacs-distinguish-gui-ret nil
    ;; The command key used for Evil commands (ex-commands) and
    ;; Emacs commands (M-x).
@@ -258,7 +260,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  ;; Use recommended Ensime version (stable)
+  ;; From: https://github.com/syl20bnr/spacemacs/tree/develop/layers/+lang/scala
+  (add-to-list 'configuration-layer-elpa-archives '("melpa-stable" . "stable.melpa.org/packages/"))
+  (add-to-list 'package-pinned-packages '(ensime . "melpa-stable")))
 
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
@@ -272,6 +277,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
+
+  ;; TODO: Remove this when https://github.com/syl20bnr/spacemacs/issues/11640
+  ;; is solved.
+  (ido-mode -1)
 
   ;; Make a TODO entry automatically change to DONE, when all children are done.
   (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
@@ -296,7 +305,10 @@ you should place you code here."
 
   ;; Point to the PlantUML jar file, for Babel to use it inside org-mode
   (setq org-plantuml-jar-path
-        "/usr/local/Cellar/plantuml/1.2018.10/libexec/plantuml.jar"))
+        "/usr/local/Cellar/plantuml/1.2018.10/libexec/plantuml.jar")
+
+  ;; Point Flycheck to the location of the scalastyle configuration
+  (setq-default flycheck-scalastylerc "/usr/local/etc/scalastyle_config.xml"))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

@@ -47,6 +47,7 @@ brew 'scala'
 brew 'sbt'
 brew 'graphviz'
 brew 'plantuml'
+brew 'scalastyle'
 
 # Install browsers
 cask 'google-chrome'
