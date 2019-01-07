@@ -23,6 +23,8 @@ Plug 'guns/vim-sexp'
 Plug 'tpope/vim-salve'
 Plug 'kana/vim-textobj-user'
 Plug 'elixir-lang/vim-elixir'
+Plug 'jnurmine/Zenburn'
+Plug 'morhetz/gruvbox'
 
 " Initialize plugin system
 call plug#end()
@@ -37,7 +39,7 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-colorscheme Tomorrow-Night-Eighties
+colorscheme Zenburn
 syntax on
 
 " Do not enforce Vi compatibility
