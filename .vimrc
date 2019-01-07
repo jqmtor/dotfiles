@@ -1,4 +1,32 @@
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'guns/vim-clojure-static'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'wesQ3/vim-windowswap'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-repeat'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'janko-m/vim-test'
+Plug 'benmills/vimux'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tommcdo/vim-lion'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-salve'
+Plug 'kana/vim-textobj-user'
+Plug 'elixir-lang/vim-elixir'
+
+" Initialize plugin system
+call plug#end()
+
 filetype plugin indent on
 
 let &t_Co=256

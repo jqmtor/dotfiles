@@ -21,6 +21,11 @@ fi;
 # Install rustup
 curl https://sh.rustup.rs -sSf | sh
 
+# Install Vim Plug
+## For Vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Install purer prompt
 npm install --global purer-prompt
 
