@@ -57,6 +57,7 @@ cask 'firefox'
 cask 'slack'
 cask 'skype'
 cask 'telegram'
+cask 'whatsapp'
 cask 'zoomus'
 
 # Install productivity applications
