@@ -49,7 +49,8 @@ values."
      (javascript :variables
                  js2-basic-offset 2
                  js-indent-level 2)
-     rust
+     (rust :variables
+           rust-format-on-save t)
      github
      yaml
      docker

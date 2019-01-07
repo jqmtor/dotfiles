@@ -18,6 +18,9 @@ if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
   chsh -s /usr/local/bin/zsh;
 fi;
 
+# Install rustup
+curl https://sh.rustup.rs -sSf | sh
+
 # Install purer prompt
 npm install --global purer-prompt
 
