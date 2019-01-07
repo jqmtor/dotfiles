@@ -18,6 +18,7 @@ brew 'findutils'
 # Install some other useful utilities like `sponge`.
 brew 'moreutils'
 brew 'ag'
+brew 'fzf'
 brew 'grep', args: ['with-default-names']
 brew 'fasd'
 brew 'tree'

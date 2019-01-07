@@ -6,6 +6,9 @@
 # Install Homebrew formulae and casks
 brew bundle
 
+# Install fzf's useful keybindings and fuzzy completion
+$(brew --prefix)/opt/fzf/install
+
 # Install Spacemacs (requires Emacs to be previously installed)
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
