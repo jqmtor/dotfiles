@@ -26,13 +26,14 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
+     osx
      ;; better-defaults
      emacs-lisp
      git
      markdown
      (org :variables
-          org-enable-github-support t
-          )
+          org-enable-github-support t)
+
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -60,8 +61,8 @@ values."
      plantuml
      (scala :variables
             scala-enable-eldoc t
-            scala-auto-insert-asterisk-in-comments t)
-     )
+            scala-auto-insert-asterisk-in-comments t))
+
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
