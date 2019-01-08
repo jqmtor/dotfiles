@@ -26,7 +26,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     osx
      ;; better-defaults
      emacs-lisp
      git
