@@ -5,7 +5,7 @@ export PATH="$HOME/bin:$PATH";
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,prompt,exports,history,man,aliases,fasd,functions,chruby,extra}.zsh; do
+for file in ~/.{path,prompt,exports,history,man,aliases,fasd,fzf,functions,chruby,extra}.zsh; do
     [[ -s "$file" ]] && source "$file";
 done;
 unset file;
@@ -28,5 +28,3 @@ bindkey -v
 bindkey -M viins 'fd' vi-cmd-mode
 # make backspace work as expected when going from command mode to insert mode
 bindkey "^?" backward-delete-char
-# bind reverse search to ^r
-bindkey '^R' history-incremental-pattern-search-backward
