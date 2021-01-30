@@ -27,10 +27,15 @@ values."
      ;; ----------------------------------------------------------------
      auto-completion
      ;; better-defaults
+     dap
      emacs-lisp
-     git
+     (git :variables
+          git-link-use-commit t)
      markdown
+     lsp
      (org :variables
+          ;; enable org-indent-mode by default
+          org-startup-indented t
           org-enable-github-support t)
 
      ;; (shell :variables
@@ -39,7 +44,11 @@ values."
      ;; spell-checking
      syntax-checking
      ;; version-control
-     clojure
+     (clojure :variables
+              clojure-enable-sayid t
+              clojure-enable-clj-refactor t
+              ;; For Nubank's Postman tests
+              cider-test-defining-forms '("defflow"))
      parinfer
      (ruby :variables
            ruby-version-manager 'chruby
@@ -50,6 +59,7 @@ values."
                  js2-basic-offset 2
                  js-indent-level 2)
      (rust :variables
+           rust-backend 'lsp
            rust-format-on-save t)
      github
      yaml
@@ -60,7 +70,9 @@ values."
      plantuml
      (scala :variables
             scala-enable-eldoc t
-            scala-auto-insert-asterisk-in-comments t))
+            scala-auto-insert-asterisk-in-comments t
+            scala-backend 'scala-metals)
+     bibtex)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -268,11 +280,7 @@ It is called immediately after `dotspacemacs/init', before layer configuration
 executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
-`dotspacemacs/user-config' first."
-  ;; Use recommended Ensime version (stable)
-  ;; From: https://github.com/syl20bnr/spacemacs/tree/develop/layers/+lang/scala
-  (add-to-list 'configuration-layer-elpa-archives '("melpa-stable" . "stable.melpa.org/packages/"))
-  (add-to-list 'package-pinned-packages '(ensime . "melpa-stable")))
+`dotspacemacs/user-config' first.")
 
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
@@ -287,16 +295,20 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
 
-  ;; TODO: Remove this when https://github.com/syl20bnr/spacemacs/issues/11640
-  ;; is solved.
-  (ido-mode -1)
-
   ;; Make a TODO entry automatically change to DONE, when all children are done.
   (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
+  ;; Turn on automatic line wrapping on org-mode.
+  ;; This might make big tables look poorly, but I am going to wait for that
+  ;; to happen before I worry.
+  (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
   ;; Locations of the org files to include in the agenda
   ;; This assumes the existence of the Dropbox folder
   (setq org-agenda-files (list "~/Dropbox/org"))
+
+
+
 
   ;; Make org agenda and calendar start weeks on Monday
   (setq org-agenda-start-on-weekday 1)

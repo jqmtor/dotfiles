@@ -28,3 +28,6 @@ bindkey -v
 bindkey -M viins 'fd' vi-cmd-mode
 # make backspace work as expected when going from command mode to insert mode
 bindkey "^?" backward-delete-char
+
+# enable shims and autocompletion
+eval "$(pyenv init -)"

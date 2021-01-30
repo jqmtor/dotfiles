@@ -26,3 +26,4 @@ function fsize() {
 function tre() {
 	tree -aC -I '.git' --dirsfirst "$@" | less -FRNX;
 }
+

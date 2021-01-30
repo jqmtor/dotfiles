@@ -33,6 +33,13 @@ Install [Homebrew](https://brew.sh/) formulae and casks:
 
 Some of the functionality of these dotfiles depends on formulae installed by `brew.sh`. If you don’t plan to run `brew.sh`, you should look carefully through the script and manually install any particularly important ones. A good example is Bash/Git completion: the dotfiles use a special version from Homebrew.
 
+### Install some things that are not available through Homebrew
+
+```
+# Install the Rust language server (requires rustup)
+rustup component add rls rust-analysis rust-src
+```
+
 Next, set some sensible macOS defaults:
 
 ```bash

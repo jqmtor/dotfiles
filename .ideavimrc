@@ -10,14 +10,24 @@ map <Space>wj <C-w>j
 map <Space>wk <C-w>k
 map <Space>wl <C-w>l
 
+" GitHub
+nmap <Space>gll :action Github.Open.In.Browser<CR>
+vmap <Space>gll :action Github.Open.In.Browser<CR>
+
 nmap <Space>sap :action FindInPath<CR>
-nmap <Space>pf :action GotoClass<CR>
-nmap <Space>wv :action SplitVertically<CR>
-nmap <Space>ws :action SplitHorizontally<CR>
+nmap <Space>pf  :action GotoClass<CR>
+nmap <Space>wv  :action SplitVertically<CR>
+nmap <Space>ws  :action SplitHorizontally<CR>
+nmap <Space>wd  :action Unsplit<CR>
 
 nmap <Space>mc :action Compile<CR>
+nmap <Space>mgg :action GotoDeclaration<CR>
 
-nmap <leader>g :action GotoDeclaration<CR>
+" Refactoring
+"" Rename symbol
+nmap <Space>mrrs :action RenameElement<CR>
+nmap <Space>mri :action OptimizeImports<CR>
+
+" REPL
 nmap <leader>si :action Scala.RunConsole<CR>
-
 nmap <leader>er :action Scala.SendSelectionToConsole<CR>

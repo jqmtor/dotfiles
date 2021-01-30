@@ -22,7 +22,7 @@ brew 'fzf'
 brew 'grep', args: ['with-default-names']
 brew 'fasd'
 brew 'tree'
-brew 'rmtrash'
+brew 'trash'
 brew 'rlwrap'
 # Install Pipe Viewer
 brew 'pv'
@@ -49,6 +49,10 @@ brew 'sbt'
 brew 'graphviz'
 brew 'plantuml'
 brew 'scalastyle'
+brew 'circleci'
+brew 'pyenv'
+brew 'tldr'
+brew 'clojure-lsp'
 
 # Install browsers
 cask 'google-chrome'
@@ -77,7 +81,7 @@ cask 'dropbox'
 # Install dev applications
 cask 'iterm2'
 cask 'dash'
-cask 'postman'
+cask 'insomnia'
 cask 'docker'
 
 # Install font

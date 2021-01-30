@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -eu
+
+git branch | egrep -v '(^\*|master|release)' | xargs git branch "$1"
