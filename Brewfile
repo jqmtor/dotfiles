@@ -66,7 +66,7 @@ cask 'slack'
 cask 'skype'
 cask 'telegram'
 cask 'whatsapp'
-cask 'zoomus'
+cask 'zoom'
 
 # Install productivity applications
 cask 'alfred'
