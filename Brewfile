@@ -54,6 +54,9 @@ brew 'pyenv'
 brew 'tldr'
 brew 'clojure-lsp'
 
+# Install keyboard tinkering tools
+brew 'qmk/qmk/qmk'
+
 # Install browsers
 cask 'google-chrome'
 cask 'firefox'
