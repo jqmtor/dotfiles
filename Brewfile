@@ -67,6 +67,7 @@ cask 'skype'
 cask 'telegram'
 cask 'whatsapp'
 cask 'zoom'
+cask 'signal'
 
 # Install productivity applications
 cask 'alfred'
