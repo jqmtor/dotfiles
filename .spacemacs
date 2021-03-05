@@ -235,6 +235,14 @@ values."
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
+   ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
+   ;; `all-the-icons', `custom', `doom',`vim-powerline' and `vanilla'. The first three
+   ;; are spaceline themes. `doom' is the doom-emacs mode-line. `vanilla' is default
+   ;; Emacs mode-line. `custom' is a user defined themes, refer to the
+   ;; DOCUMENTATION.org for more info on how to create your own spaceline theme. Value
+   ;; can be a symbol or a list with additional properties like
+   ;; '(all-the-icons :separator-scale 1.5).
+   dotspacemacs-mode-line-theme 'spacemacs
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
@@ -309,9 +317,6 @@ you should place you code here."
   ;; Locations of the org files to include in the agenda
   ;; This assumes the existence of the Dropbox folder
   (setq org-agenda-files (list "~/Dropbox/org"))
-
-
-
 
   ;; Make org agenda and calendar start weeks on Monday
   (setq org-agenda-start-on-weekday 1)
