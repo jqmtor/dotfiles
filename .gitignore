@@ -38,3 +38,12 @@ Thumbs.db
 # ensime
 ensime.sbt
 
+# lsp
+.lsp/
+
+# clojure
+.clj-kondo/
+
+# my default playground directory in each project
+.jqmtor/
+
