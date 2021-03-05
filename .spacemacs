@@ -47,6 +47,9 @@ values."
      (clojure :variables
               clojure-enable-sayid t
               clojure-enable-clj-refactor t
+              ;; Last time I checked, using the lsp backend made the Clojure
+              ;; mode extremely slow. For the time being, continue using cider.
+              clojure-backend 'cider
               ;; For Nubank's Postman tests
               cider-test-defining-forms '("defflow"))
      parinfer
