@@ -31,3 +31,9 @@ bindkey "^?" backward-delete-char
 
 # enable shims and autocompletion
 eval "$(pyenv init -)"
+
+# enable using <Esc>v to edit current shell in Vim.
+# this is only required because of using zsh.
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
