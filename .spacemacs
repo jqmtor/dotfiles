@@ -54,9 +54,12 @@ values."
               cider-test-defining-forms '("defflow"))
      parinfer
      (ruby :variables
+           ;; instead of lsp
+           ruby-backend 'robe
            ruby-version-manager 'chruby
            ruby-test-runner 'rspec
-           ruby-enable-enh-ruby-mode t)
+           ruby-enable-enh-ruby-mode t
+           enh-ruby-add-encoding-comment-on-save nil)
      python
      (javascript :variables
                  js2-basic-offset 2
