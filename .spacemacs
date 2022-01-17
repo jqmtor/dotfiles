@@ -36,8 +36,22 @@ values."
      (org :variables
           ;; enable org-indent-mode by default
           org-startup-indented t
-          org-enable-github-support t)
-
+          org-enable-github-support t
+          ;; show file paths for refiling, enabling refile operations to the top-level
+          org-refile-use-outline-path 'file
+          ;; leverage helm and show all possibilites for refile
+          org-outline-path-complete-in-steps nil
+          ;; allow creating of creating a new parent node to refile into
+          ;; and ask to confirm if a new one is being created
+          org-refile-allow-creating-parent-nodes 'confirm
+          org-refile-targets
+          '(("cookbook.org" :maxlevel . 1))
+          org-capture-templates
+          '(("c" "Cookbook" entry (file "~/Dropbox/org/cookbook-inbox.org")
+             "%(org-chef-get-recipe-from-url)"
+             :empty-lines 1)
+            ("m" "Manual Cookbook" entry (file "~/Dropbox/org/cookbook-inbox.org")
+             "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")))
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -84,7 +98,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ag)
+   dotspacemacs-additional-packages '(org-chef)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -160,7 +174,7 @@ values."
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m)
+   ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
