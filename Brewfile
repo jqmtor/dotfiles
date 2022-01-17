@@ -53,6 +53,7 @@ brew 'circleci'
 brew 'pyenv'
 brew 'tldr'
 brew 'clojure-lsp'
+cask 'jenv'
 
 # Install keyboard tinkering tools
 brew 'qmk/qmk/qmk'
