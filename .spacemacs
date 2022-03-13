@@ -92,6 +92,7 @@ values."
             scala-enable-eldoc t
             scala-auto-insert-asterisk-in-comments t
             scala-backend 'scala-metals)
+     (java :variables java-backend 'lsp)
      bibtex)
 
    ;; List of additional packages that will be installed without being
