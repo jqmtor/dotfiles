@@ -26,9 +26,6 @@ curl https://sh.rustup.rs -sSf | sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Install purer prompt
-npm install --global purer-prompt
-
 # Download the default scalastyle config.
 # Spacemacs expects that the file exists on the provided location (configured on .spacemacs)
 mkdir -p /usr/local/etc/scalastyle

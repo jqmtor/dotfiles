@@ -8,6 +8,8 @@ brew 'zsh'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 brew 'zsh-history-substring-search'
+brew 'romkatv/powerlevel10k/powerlevel10k'
+
 # Install GNU utilities
 # To use them with their normal names, add **each** binary to $PATH (check .path)
 # To access their man pages,  add **each** manual to $MANPATH (check .exports)
