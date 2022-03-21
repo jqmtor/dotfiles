@@ -27,3 +27,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+
+# Set GPG tty
+export GPG_TTY=$(tty)
