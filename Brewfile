@@ -1,7 +1,5 @@
 cask_args appdir: '/Applications'
 
-tap 'caskroom/fonts'
-
 # Install essentials
 brew 'bash'
 brew 'zsh'
@@ -21,7 +19,7 @@ brew 'findutils'
 brew 'moreutils'
 brew 'ag'
 brew 'fzf'
-brew 'grep', args: ['with-default-names']
+brew 'grep'
 brew 'fasd'
 brew 'tree'
 brew 'trash'
@@ -39,9 +37,10 @@ brew 'go'
 brew 'vim'
 tap 'neovim/neovim'
 brew 'neovim'
-tap 'd12frosted/emacs-plus'
+tap 'd12frosted/emacs-plus@28'
 brew 'emacs-plus'
-cask 'java'
+brew 'java'
+brew 'java11'
 brew 'leiningen'
 brew 'chruby'
 brew 'ruby-install'
@@ -55,9 +54,10 @@ brew 'circleci'
 brew 'pyenv'
 brew 'tldr'
 brew 'clojure-lsp'
-cask 'jenv'
+brew 'jenv'
 
 # Install keyboard tinkering tools
+tap 'qmk/qmk'
 brew 'qmk/qmk/qmk'
 
 # Install browsers
@@ -92,4 +92,7 @@ cask 'insomnia'
 cask 'docker'
 
 # Install font
+
+brew 'svn'
+tap 'homebrew/cask-fonts'
 cask 'font-source-code-pro'

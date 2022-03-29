@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Add `~/bin` to the `$PATH`
 # TODO: needed?
 export PATH="$HOME/bin:$PATH";
@@ -24,10 +26,16 @@ compinit
 # allow [] on commands like rake
 unsetopt nomatch
 
-fpath=(/usr/local/share/zsh-completions "$HOME/.zfunctions" $fpath)
+FPATH="$HOME/.zfunctions":$FPATH
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
+fi
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # use Vim style editing for the console
 bindkey -v
