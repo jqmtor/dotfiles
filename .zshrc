@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($(brew --prefix)/bin/brew shellenv)"
 
 # Add `~/bin` to the `$PATH`
 # TODO: needed?
@@ -34,8 +34,8 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # use Vim style editing for the console
 bindkey -v
