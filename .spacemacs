@@ -89,9 +89,10 @@ values."
      ess
      plantuml
      (scala :variables
-            scala-enable-eldoc t
+            scala-backend 'scala-metals
+            scala-indent:use-javadoc-style t
             scala-auto-insert-asterisk-in-comments t
-            scala-backend 'scala-metals)
+            scala-enable-gtags t)
      (java :variables java-backend 'lsp)
      bibtex)
 
