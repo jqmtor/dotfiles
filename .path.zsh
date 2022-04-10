@@ -13,14 +13,11 @@ export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 export PATH="$PATH:$HOME/.git_subcommands"
 
 # Add GNU utilities to path to use their original names (and not the -g prefix)
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
 
 # Add jenv to the path
-
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
-

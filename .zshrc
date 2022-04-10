@@ -5,11 +5,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-eval "$($(brew --prefix)/bin/brew shellenv)"
-
 # Add `~/bin` to the `$PATH`
 # TODO: needed?
 export PATH="$HOME/bin:$PATH";
+
+# Add the M1 Homebrew path to the PATH.
+# This is not required after the Homebrew shellenv command is run on .zshrc,
+# but ensures that the command runs without hardcoding the path across
+# M1 and Intel Macs.
+export PATH="/opt/homebrew/bin:$PATH"
+eval "$(brew shellenv)"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
