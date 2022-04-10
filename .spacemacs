@@ -81,7 +81,6 @@ values."
      (rust :variables
            rust-backend 'lsp
            rust-format-on-save t)
-     github
      yaml
      docker
      terraform
@@ -89,7 +88,6 @@ values."
      ess
      plantuml
      (scala :variables
-            scala-backend 'scala-metals
             scala-indent:use-javadoc-style t
             scala-auto-insert-asterisk-in-comments t
             scala-enable-gtags t)
@@ -294,8 +292,8 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup 'trailing
-   ))
+   dotspacemacs-whitespace-cleanup 'trailing))
+
 
 (defun dotspacemacs/user-env ()
   "Environment variables setup.
@@ -350,14 +348,7 @@ you should place you code here."
   ;; https://github.com/DogLooksGood/parinfer-mode/issues/55
   ;; https://github.com/syl20bnr/spacemacs/issues/9491
   (add-hook 'parinfer-mode-enable-hook 'turn-off-smartparens-mode)
-  (add-hook 'parinfer-mode-disable-hook 'turn-on-smartparens-mode)
-
-  ;; Point to the PlantUML jar file, for Babel to use it inside org-mode
-  (setq org-plantuml-jar-path
-        "/usr/local/Cellar/plantuml/1.2018.10/libexec/plantuml.jar")
-
-  ;; Point Flycheck to the location of the scalastyle configuration
-  (setq-default flycheck-scalastylerc "/usr/local/etc/scalastyle_config.xml"))
+  (add-hook 'parinfer-mode-disable-hook 'turn-on-smartparens-mode))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -369,9 +360,8 @@ you should place you code here."
  '(package-selected-packages
    (quote
     (web-mode web-beautify toml-mode tagedit sql-indent slim-mode scss-mode sass-mode racer pug-mode livid-mode skewer-mode simple-httpd less-css-mode js2-refactor js2-mode js-doc intero hlint-refactor hindent helm-hoogle helm-css-scss haskell-snippets haml-mode flycheck-rust flycheck-haskell emmet-mode company-web web-completion-data company-tern dash-functional tern company-ghci company-ghc ghc haskell-mode company-cabal coffee-mode cmm-mode cargo rust-mode zenburn-theme yaml-mode ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org terraform-mode spacemacs-theme spaceline smeargle rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters quelpa popwin persp-mode paradox orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-guru go-eldoc gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu enh-ruby-mode elisp-slime-nav dumb-jump dockerfile-mode docker define-word company-statistics company-go column-enforce-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby bundler auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent ag adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
-(custom-set-faces
+(custom-set-faces)
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )

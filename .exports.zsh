@@ -30,3 +30,7 @@ export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 
 # Set GPG tty
 export GPG_TTY=$(tty)
+
+# Emacs - use plists for deserialization
+# See: https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
+export LSP_USE_PLISTS=true
