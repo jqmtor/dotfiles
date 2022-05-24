@@ -61,8 +61,8 @@ bindkey -M vicmd v edit-command-line
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# iTerm - Set the tab title to the current dir
 DISABLE_AUTO_TITLE="true"
-
 precmd() {
   # sets the tab title to current dir
   echo -ne "\e]1;${PWD##*/}\a"
