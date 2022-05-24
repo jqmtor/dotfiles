@@ -16,7 +16,6 @@
   grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
   stun = stash save --include-untracked
   stall = stash save --all
-	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 [color]
   diff = auto
   status = auto
@@ -25,22 +24,25 @@
 [core]
   excludesfile = ~/.gitignore
   editor = vim
-
+  pager = delta
 [pull]
   ff = only
-
 [push]
   default = tracking
-
+[init]
+  defaultBranch = main
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true  # use n and N to move between diff sections
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
 [sendemail]
   smtpEncryption = tls
   smtpServer = smtp.gmail.com
   smtpUser = quimrstorres@gmail.com
   smtpServerPort = 587
-
 [include]
   path = ~/.gitconfig.private
-
-[init]
-  defaultBranch = main
-
