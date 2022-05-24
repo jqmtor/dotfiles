@@ -30,7 +30,7 @@ brew 'pv'
 # Install dev tools
 brew 'git'
 brew 'icdiff'
-brew 'diff-so-fancy'
+brew 'git-delta'
 brew 'wget'
 brew 'jq'
 brew 'go'
