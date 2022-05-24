@@ -3,31 +3,48 @@ source ~/.vimrc
 " Make the editor wait less for the fd (replacement for ESC) sequence to finish
 set timeoutlen=1000
 
+set incsearch
 set surround
 
-map <Space>wh <C-w>h
-map <Space>wj <C-w>j
-map <Space>wk <C-w>k
-map <Space>wl <C-w>l
+noremap <Space>wh <C-w>h
+noremap <Space>wj <C-w>j
+noremap <Space>wk <C-w>k
+noremap <Space>wl <C-w>l
 
 " GitHub
-nmap <Space>gll :action Github.Open.In.Browser<CR>
-vmap <Space>gll :action Github.Open.In.Browser<CR>
+nnoremap <Space>gll :action Github.Open.In.Browser<CR>
+vnoremap <Space>gll :action Github.Open.In.Browser<CR>
 
-nmap <Space>sap :action FindInPath<CR>
-nmap <Space>pf  :action GotoClass<CR>
-nmap <Space>wv  :action SplitVertically<CR>
-nmap <Space>ws  :action SplitHorizontally<CR>
-nmap <Space>wd  :action Unsplit<CR>
+nnoremap <C-o> :action Back<CR>
+nnoremap <C-i> :action Forward<CR>
+nnoremap <Space>/ :action FindInPath<CR>
+nnoremap <Space>pf  :action GotoFile<CR>
+nnoremap <Space>ph  :action GotoFile<CR>
+nnoremap <Space>wv  :action SplitVertically<CR>
+nnoremap <Space>ws  :action SplitHorizontally<CR>
+nnoremap <Space>wd  :action Unsplit<CR>
+nnoremap <Space>:  :action GotoAction<CR>
 
-nmap <Space>mc :action Compile<CR>
-nmap <Space>mgg :action GotoDeclaration<CR>
+nnoremap <Space>mgg :action GotoDeclaration<CR>
+nnoremap <Space>mgt :action GotoTest<CR>
 
 " Refactoring
 "" Rename symbol
-nmap <Space>mrrs :action RenameElement<CR>
-nmap <Space>mri :action OptimizeImports<CR>
+nnoremap <Space>mrr :action RenameElement<CR>
+nnoremap <Space>mri :action OptimizeImports<CR>
+
+" Formatting
+nnoremap <Space>m== :action ReformatCode<CR>
 
 " REPL
-nmap <leader>si :action Scala.RunConsole<CR>
-nmap <leader>er :action Scala.SendSelectionToConsole<CR>
+nnoremap <leader>si :action Scala.RunConsole<CR>
+nnoremap <leader>er :action Scala.SendSelectionToConsole<CR>
+
+" Build
+nnoremap <Space>mc :action Compile<CR>
+
+" User commands
+nnoremap <Space>or :action Run<CR>
+nnoremap <Space>oc :action GotoClass<CR>
+nnoremap <Space>of :action ProblemsView.QuickFixes<CR>
+
