@@ -44,6 +44,9 @@ ensime.sbt
 # clojure
 .clj-kondo/
 
+# karabiner files
+.*.~undo-tree~
+
 # my default playground directory in each project
 .jqmtor/
 
