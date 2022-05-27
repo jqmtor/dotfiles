@@ -56,10 +56,12 @@ brew 'pyenv'
 brew 'tldr'
 brew 'clojure-lsp'
 brew 'jenv'
+cask 'logseq'
 
 # Install keyboard tinkering tools
 tap 'qmk/qmk'
 brew 'qmk/qmk/qmk'
+cask 'karabiner-elements'
 
 # Install browsers
 cask 'google-chrome'
