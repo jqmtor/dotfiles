@@ -94,6 +94,9 @@ cask 'dash'
 cask 'insomnia'
 cask 'docker'
 
+# Translation tools
+cask 'deepl'
+
 # Install font
 
 brew 'svn'
