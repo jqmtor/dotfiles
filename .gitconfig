@@ -6,6 +6,7 @@
   ci = commit
   co = checkout
   fco = "!fbr() { local branches branch branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\") && branch=$(echo \"$branches\" | fzf-tmux -d $(( 2 + $(wc -l <<< \"$branches\") )) +m) && git checkout $(echo \"$branch\" | sed \"s/.* //\" | sed \"s#remotes/[^/]*/##\"); }; fbr"
+  new = "!new() { git checkout -b $(date +%m-%d/)$1; }; new"
   br = branch
   unstage = reset HEAD
   ustg = reset HEAD
