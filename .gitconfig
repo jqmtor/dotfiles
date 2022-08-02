@@ -31,6 +31,7 @@
   ff = only
 [push]
   default = tracking
+  autoSetupRemote = true
 [init]
   defaultBranch = main
 [interactive]
