@@ -85,7 +85,9 @@ values."
            rust-format-on-save t)
      yaml
      docker
-     terraform
+     (terraform :variables
+                terraform-auto-format-on-save t
+                terraform-backend 'lsp)
      ;; Emacs Speaks Statistics
      ess
      plantuml
