@@ -57,6 +57,7 @@ brew 'tldr'
 brew 'clojure-lsp'
 brew 'jenv'
 cask 'logseq'
+brew 'terraform-ls'
 
 # Install keyboard tinkering tools
 tap 'qmk/qmk'
