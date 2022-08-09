@@ -33,6 +33,8 @@ values."
           git-link-use-commit t)
      markdown
      lsp
+     (helm :variables
+           helm-ag-command-option "--hidden")
      (org :variables
           ;; enable org-indent-mode by default
           org-startup-indented t
