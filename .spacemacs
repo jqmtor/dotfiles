@@ -313,7 +313,20 @@ It is called immediately after `dotspacemacs/init', before layer configuration
 executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
-`dotspacemacs/user-config' first.")
+`dotspacemacs/user-config' first."
+  (setq zenburn-override-colors-alist
+        ;; This change sets the comment colors to a dark grey. Since the
+        ;; zenburn-green and *-green-2 might be used for other purposes, this
+        ;; might affect other modes in an undesirable way, but I am waiting for
+        ;; those problems to surface. There is no way to change the colors of
+        ;; the comments by themselves without forking the theme.
+        ;;
+        ;; By default, the comment delimiter is darker than the text but I am
+        ;; setting both to the same color.
+        '(;; color of the comment text
+          ("zenburn-green" . "#777777")
+          ;; color of the comment delimiter
+          ("zenburn-green-2" . "#777777"))))
 
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
