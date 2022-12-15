@@ -43,6 +43,8 @@ values."
           org-refile-use-outline-path 'file
           ;; leverage helm and show all possibilites for refile
           org-outline-path-complete-in-steps nil
+          ;; do not prompt user before evaluating a code block
+          org-confirm-babel-evaluate nil
           ;; allow creating of creating a new parent node to refile into
           ;; and ask to confirm if a new one is being created
           org-refile-allow-creating-parent-nodes 'confirm
@@ -356,6 +358,11 @@ you should place you code here."
   ;; Make org agenda and calendar start weeks on Monday
   (setq org-agenda-start-on-weekday 1)
   (setq calendar-week-start-day 1)
+
+  ;; Enable code evaluation for shell scripts on org files
+  (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((shell . t)))
 
   ;; Disable smartparens while parinfer is enabled
   ;; This feature from parinfer does not work with smartparens enabled:
