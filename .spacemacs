@@ -31,6 +31,7 @@ values."
      emacs-lisp
      (git :variables
           git-link-use-commit t)
+     graphviz
      markdown
      lsp
      (helm :variables
