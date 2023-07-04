@@ -82,6 +82,7 @@ cask 'dropbox'
 
 # Install dev applications
 cask 'iterm2'
+cask 'warp'
 cask 'dash'
 cask 'docker'
 
