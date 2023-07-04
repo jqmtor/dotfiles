@@ -1,1 +1,0 @@
-[[ -s ~/.zshrc ]] && source ~/.zshrc

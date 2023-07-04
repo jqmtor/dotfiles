@@ -1,11 +1,9 @@
+# Pre-compute the brew prefix because it's slow
+export BREW_PREFIX="$(brew --prefix)"
+
 # Golang
 export GOPATH=$HOME/src/go
 export PATH="$PATH:$GOPATH/bin"
-
-# Rust
-export PATH="$PATH:$HOME/.cargo/bin"
-# For Rust Racer
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
@@ -13,10 +11,10 @@ export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 export PATH="$PATH:$HOME/.git_subcommands"
 
 # Add GNU utilities to path to use their original names (and not the -g prefix)
-export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
+export PATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$BREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$BREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
+export PATH="$BREW_PREFIX/opt/grep/libexec/gnubin:$PATH"
 
 # Add jenv to the path
 export PATH="$HOME/.jenv/bin:$PATH"
