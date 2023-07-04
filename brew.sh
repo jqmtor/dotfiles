@@ -18,18 +18,8 @@ if ! fgrep -q '/opt/homebrew/bin/zsh' /etc/shells; then
   chsh -s /opt/homebrew/bin/zsh;
 fi;
 
-# Install rustup
-curl https://sh.rustup.rs -sSf | sh
-
 # Install Vim Plug
 ## For Vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# The following are all meant to improve the Python mode on Spacemacs and are referred to on the
-# documentation for that layer.
-# See https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/python
-# To enable syntax checking for python code on Spacemacs
-pip install flake8
-# To supress unused imports easily
-pip install autoflake
