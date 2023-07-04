@@ -31,10 +31,8 @@ brew 'pv'
 brew 'git'
 brew 'icdiff'
 brew 'git-delta'
-brew 'wget'
 brew 'jq'
 brew 'go'
-brew 'tmux'
 brew 'vim'
 tap 'neovim/neovim'
 brew 'neovim'
@@ -48,21 +46,16 @@ brew 'chruby'
 brew 'ruby-install'
 brew 'node'
 brew 'yarn'
-brew 'scala'
-brew 'sbt'
 brew 'graphviz'
 brew 'circleci'
-brew 'pyenv'
 brew 'tldr'
 brew 'clojure-lsp'
 brew 'jenv'
 cask 'logseq'
-brew 'terraform-ls'
 
 # Install keyboard tinkering tools
 tap 'qmk/qmk'
 brew 'qmk/qmk/qmk'
-cask 'karabiner-elements'
 
 # Install browsers
 cask 'google-chrome'
@@ -70,7 +63,6 @@ cask 'firefox'
 
 # Install communication applications
 cask 'slack'
-cask 'skype'
 cask 'telegram'
 cask 'whatsapp'
 cask 'zoom'
@@ -78,7 +70,6 @@ cask 'signal'
 
 # Install productivity applications
 cask 'alfred'
-cask 'rescuetime'
 
 # Install security & privacy applications
 cask '1password'
@@ -92,7 +83,6 @@ cask 'dropbox'
 # Install dev applications
 cask 'iterm2'
 cask 'dash'
-cask 'insomnia'
 cask 'docker'
 
 # Translation tools
