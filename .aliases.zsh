@@ -15,4 +15,4 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 
 alias gemacs='open -a Emacs "$@"'
 
-alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n"'
+alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n" | pbcopy | echo "=> New UUID copied to pasteboard."'
