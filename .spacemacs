@@ -72,7 +72,8 @@ values."
               cider-repl-display-in-current-window t
               ;; For Nubank's Postman tests
               cider-test-defining-forms '("defflow"))
-     parinfer
+     (parinfer :variables
+               parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib")
      (ruby :variables
            ;; instead of lsp
            ruby-backend 'robe

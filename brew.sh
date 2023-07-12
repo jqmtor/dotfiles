@@ -23,3 +23,15 @@ fi;
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Install parinfer-rust from source and moves it to ~/.emacs.d/parinfer-rust
+# This is required for Mx Macs, and applies the solution described in this
+# issue:
+# https://github.com/justinbarclay/parinfer-rust-mode/issues/41
+#
+# This assumes that:
+# - rust is installed
+# - ~/.spacemacs sets the parinfer-rust-library variable to the destination
+#   location of the copy command.
+git clone git@github.com:eraserhd/parinfer-rust.git /tmp/parinfer-rust
+(cd /tmp/parinfer-rust && cargo build --release --features emacs)
+cp /tmp/parinfer-rust/target/release/libparinfer_rust.dylib ~/.emacs.d/parinfer-rust/libparinfer_rust.dylib
