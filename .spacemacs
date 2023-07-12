@@ -69,6 +69,7 @@ values."
               ;; Last time I checked, using the lsp backend made the Clojure
               ;; mode extremely slow. For the time being, continue using cider.
               clojure-backend 'cider
+              cider-repl-display-in-current-window t
               ;; For Nubank's Postman tests
               cider-test-defining-forms '("defflow"))
      parinfer
