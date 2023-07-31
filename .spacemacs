@@ -69,9 +69,7 @@ values."
               ;; Last time I checked, using the lsp backend made the Clojure
               ;; mode extremely slow. For the time being, continue using cider.
               clojure-backend 'cider
-              cider-repl-display-in-current-window t
-              ;; For Nubank's Postman tests
-              cider-test-defining-forms '("defflow"))
+              cider-repl-display-in-current-window t)
      (parinfer :variables
                parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib")
      (ruby :variables
@@ -302,7 +300,6 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup 'trailing))
-
 
 (defun dotspacemacs/user-env ()
   "Environment variables setup.

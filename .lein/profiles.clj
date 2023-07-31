@@ -15,4 +15,3 @@
         :dependencies [[nrepl "1.0.0"]
                        [mvxcvi/puget "1.3.4"]]
         :repl-options {:timeout 120000}}}
-
