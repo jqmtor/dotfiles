@@ -7,8 +7,7 @@
         :repositories        [["central"  {:url "https://repo1.maven.org/maven2/"
                                            :snapshots false}]
                               ["clojars"  {:url "https://clojars.org/repo/"}]
-                              ["nu-maven" {:url "s3p://nu-maven/releases/"
-                                           :region "sa-east-1"}]]
+                              ["nu-codeartifact" {:url "https://maven.cicd.nubank.world"}]]
         :plugin-repositories [["nu-maven" {:url "s3p://nu-maven/releases/"}]]
         :dependencies        [[cljdev "0.11.5"]]}
  :repl {:plugins      [[cider/cider-nrepl "0.30.0"]
