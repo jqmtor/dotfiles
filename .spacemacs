@@ -343,6 +343,9 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
 
+  (with-eval-after-load "cider-test"
+    (add-to-list 'cider-test-defining-forms "defflow"))
+
   ;; Make a TODO entry automatically change to DONE, when all children are done.
   (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
