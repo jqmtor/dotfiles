@@ -35,3 +35,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 git clone git@github.com:eraserhd/parinfer-rust.git /tmp/parinfer-rust
 (cd /tmp/parinfer-rust && cargo build --release --features emacs)
 cp /tmp/parinfer-rust/target/release/libparinfer_rust.dylib ~/.emacs.d/parinfer-rust/libparinfer_rust.dylib
+
+# Install mermaid-cli
+# This assumes that:
+# - npm is installed
+npm install -g @mermaid-js/mermaid-cli

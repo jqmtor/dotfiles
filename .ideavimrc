@@ -36,10 +36,6 @@ nnoremap <Space>mri :action OptimizeImports<CR>
 " Formatting
 nnoremap <Space>m== :action ReformatCode<CR>
 
-" REPL
-nnoremap <leader>si :action Scala.RunConsole<CR>
-nnoremap <leader>er :action Scala.SendSelectionToConsole<CR>
-
 " Build
 nnoremap <Space>mc :action Compile<CR>
 
